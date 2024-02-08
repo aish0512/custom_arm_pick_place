@@ -1,0 +1,8 @@
+prefix=/home/aishwarya/Desktop/pick_place_tf/devel
+
+Name: custom_arm
+Description: Description of custom_arm
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

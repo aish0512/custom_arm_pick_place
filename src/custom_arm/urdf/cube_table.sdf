@@ -1,0 +1,27 @@
+<sdf version="1.6">
+    <world name="default">
+
+        <!-- Define the Table -->
+        <model name="table">
+            <pose>0.5 0 0.2 0 0 0</pose> <!-- x y z roll pitch yaw -->
+            <static>true</static> <!-- The table is a static object -->
+            <link name="link">
+                <collision name="collision">
+                    <geometry>
+                        <box>
+                            <size>0.15 0.4 0.4</size> <!-- Size of the table -->
+                        </box>
+                    </geometry>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.15 0.4 0.4</size> <!-- Size of the table -->
+                        </box>
+                    </geometry>
+                </visual>
+            </link>
+        </model>
+
+    </world>
+</sdf>

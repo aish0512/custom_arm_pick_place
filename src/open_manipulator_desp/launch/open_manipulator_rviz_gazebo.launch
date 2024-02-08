@@ -1,0 +1,23 @@
+<launch>
+
+    <include file="$(find open_manipulator_desp)/launch/open_manipulator_upload.launch"/>
+    
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model open_manipulator_desp"    />
+
+    <node name="RSP" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+    <rosparam  file="$(find open_manipulator_desp)/config/arm_controller.yaml"/>
+
+    <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
+    <!-- Send joint values -->
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+        <rosparam param="source_list" subst_value="true">["joint_states"]</rosparam>
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find open_manipulator_desp)/rviz/open_manipulator.rviz"/>
+   
+    
+
+</launch>

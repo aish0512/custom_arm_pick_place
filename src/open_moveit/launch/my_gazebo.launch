@@ -1,0 +1,17 @@
+<launch>
+  <include file="$(find open_manipulator_desp)/launch/open_manipulator_gazebo.launch"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states]</rosparam>
+  </node>
+
+  <include file="$(find open_moveit)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+  <include file="$(find open_moveit)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find open_moveit)/launch/moveit.rviz"/>
+  </include>
+
+</launch>

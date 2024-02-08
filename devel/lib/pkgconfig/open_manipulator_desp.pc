@@ -1,0 +1,8 @@
+prefix=/home/aishwarya/Desktop/pick_place_tf/devel
+
+Name: open_manipulator_desp
+Description: Description of open_manipulator_desp
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

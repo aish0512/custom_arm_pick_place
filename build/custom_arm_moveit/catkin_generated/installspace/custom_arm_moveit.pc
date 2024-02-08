@@ -1,0 +1,8 @@
+prefix=/home/aishwarya/Desktop/pick_place_tf/install
+
+Name: custom_arm_moveit
+Description: Description of custom_arm_moveit
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

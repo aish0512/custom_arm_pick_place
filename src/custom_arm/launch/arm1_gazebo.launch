@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="robot_description" textfile="$(find custom_arm)urdf/arm1.urdf"/> 
+    
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model custom_arm"    />
+
+    <node name="RSP" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+    <node name="spawn_sdf1" pkg="gazebo_ros" type="spawn_model" args="-file /home/aishwarya/Desktop/pick_place_tf/src/custom_arm/urdf/cube_table.sdf -sdf -model table" />
+
+    <node name="spawn_sdf2" pkg="gazebo_ros" type="spawn_model" args="-file /home/aishwarya/Desktop/pick_place_tf/src/custom_arm/urdf/cube_only.sdf -sdf -model cube" />
+
+    <rosparam  file="$(find custom_arm)/config/arm1_controller.yaml"/>
+
+    <node name="Controller_Spawner" pkg="controller_manager" type="spawner" args="arm1_controller gripper_controller"/>
+
+        
+   
+    
+
+</launch>

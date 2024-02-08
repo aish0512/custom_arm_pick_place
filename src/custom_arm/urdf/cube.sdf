@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="my_cube">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.03 0.03 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.03 0.03 0.05</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    
+    <!-- Add this plugin to broadcast TF -->
+    <plugin name="gazebo_ros_tf" filename="libgazebo_ros_tf.so">
+      <robotNamespace>/</robotNamespace>
+      <bodyName>link</bodyName>
+      <frameName>my_cube_frame</frameName>
+    </plugin>
+  </model>
+</sdf>

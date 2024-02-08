@@ -1,0 +1,4 @@
+<launch>
+  <param name="robot_description"
+         command="$(find xacro)/xacro '$(find open_manipulator_desp)/urdf/open_manipulator_robot.urdf.xacro'"/>
+</launch>
